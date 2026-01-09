@@ -1,5 +1,10 @@
 <template>
-  <section class="kanban__column" :data-column-id="status.status.id" @dragover.prevent @drop="onDrop">
+  <section
+    class="kanban__column"
+    :data-column-id="status.status.id"
+    @dragover.prevent
+    @drop="onDrop"
+  >
     <div class="kanban__header">
       <div class="kanban__header-content">
         <template v-if="isEditing === false">
@@ -10,8 +15,14 @@
           <input v-model="statusName" placeholder="Введите название..." minlength="5" />
           <button type="submit" class="board-action-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M20 6L9 17l-5-5" />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20 6L9 17l-5-5"
+              />
             </svg>
           </button>
         </form>
@@ -27,25 +38,44 @@
 
         <button class="board-action-btn" @click="isEditing = true">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
               <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
               <path
-                d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" />
+                d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"
+              />
             </g>
           </svg>
         </button>
 
         <button class="board-action-btn" @click="handleDelete">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M10 11v6m4-6v6m5-11v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 11v6m4-6v6m5-11v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+            />
           </svg>
         </button>
       </div>
     </div>
 
     <div class="kanban__list">
-      <TaskItem v-for="task in status.tasks" :key="task.id" :task="task" draggable="true" @edit="handleEditTask(task)" />
+      <TaskItem
+        v-for="task in status.tasks"
+        :key="task.id"
+        :task="task"
+        draggable="true"
+        @edit="handleEditTask(task)"
+      />
 
       <div v-if="status.tasks.length === 0" class="empty-column">
         <p>Задач пока нет</p>
@@ -53,7 +83,10 @@
     </div>
 
     <div v-if="showModal" class="modal-overlay" @click.self="showModal = false">
-      <form @submit.prevent="currentOperation === 'create' ? handleCreateTask() : handleEditSubmit()" class="modal">
+      <form
+        @submit.prevent="currentOperation === 'create' ? handleCreateTask() : handleEditSubmit()"
+        class="modal"
+      >
         <div class="modal-header">
           <h3>{{ currentOperation === 'create' ? 'Создать новую' : 'Редактировать' }} задачу</h3>
           <button @click="showModal = false" class="modal-close">×</button>
@@ -62,20 +95,28 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="taskName">Название задачи <span class="required">*</span></label>
-            <input id="taskName" v-model="formModel.name" @keyup.enter="createTask"
-              :class="{ 'error': !formModel.name.trim() }" autofocus minlength="5" />
-            <div v-if="!formModel.name.trim()" class="field-error">
-              Введите название задачи
-            </div>
+            <input
+              id="taskName"
+              v-model="formModel.name"
+              @keyup.enter="createTask"
+              :class="{ error: !formModel.name.trim() }"
+              autofocus
+              minlength="5"
+            />
+            <div v-if="!formModel.name.trim()" class="field-error">Введите название задачи</div>
           </div>
 
           <div class="form-group">
             <label for="taskDescription">Описание <span class="required">*</span></label>
-            <textarea id="taskDescription" v-model="formModel.description"
-              placeholder="Краткое описание вашей задачи..." rows="3" minlength="5" maxlength="200"></textarea>
-            <div class="char-count">
-              {{ formModel.description.length }}/200
-            </div>
+            <textarea
+              id="taskDescription"
+              v-model="formModel.description"
+              placeholder="Краткое описание вашей задачи..."
+              rows="3"
+              minlength="5"
+              maxlength="200"
+            ></textarea>
+            <div class="char-count">{{ formModel.description.length }}/200</div>
           </div>
 
           <div class="form-group">
@@ -86,9 +127,11 @@
 
         <div class="modal-footer">
           <button @click="showModal = false" class="cancel-btn">Отмена</button>
-          <button type="submit"
+          <button
+            type="submit"
             :disabled="formModel.name.trim().length < 5 || formModel.description.trim().length < 5"
-            class="confirm-btn">
+            class="confirm-btn"
+          >
             <span>{{ currentOperation === 'create' ? 'Создать' : 'Сохранить' }} задачу</span>
           </button>
         </div>
@@ -98,19 +141,19 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
-import { useTodoStore } from "@/stores/todo.store";
-import TaskItem from "./TaskItem.vue";
+import { ref, reactive } from 'vue'
+import { useTodoStore } from '@/stores/todo.store'
+import TaskItem from './TaskItem.vue'
 
 const props = defineProps({
   status: { type: Object, required: true },
   boardId: { type: [Number, String], required: true }
-});
+})
 
-const todoStore = useTodoStore();
+const todoStore = useTodoStore()
 
-const isEditing = ref(false);
-const statusName = ref(props.status.status.name);
+const isEditing = ref(false)
+const statusName = ref(props.status.status.name)
 
 const showModal = ref(false)
 const currentOperation = ref('create')
@@ -120,22 +163,20 @@ const formModel = reactive({
   name: '',
   description: '',
   plannedCompletionAt: ''
-});
+})
 
 function openCreateTask() {
-  currentOperation.value = 'create';
+  currentOperation.value = 'create'
   showModal.value = true
 }
 
 async function handleCreateTask() {
-  await todoStore.createTask(
-    props.boardId,
-    props.status.status.id,
-    {
-      ...formModel,
-      plannedCompletionAt: formModel.plannedCompletionAt ? new Date(formModel.plannedCompletionAt).toISOString() : undefined
-    }
-  )
+  await todoStore.createTask(props.boardId, props.status.status.id, {
+    ...formModel,
+    plannedCompletionAt: formModel.plannedCompletionAt
+      ? new Date(formModel.plannedCompletionAt).toISOString()
+      : undefined
+  })
 
   Object.assign(formModel, {
     name: '',
@@ -146,14 +187,13 @@ async function handleCreateTask() {
   showModal.value = false
 }
 
-
 async function submitEditForm() {
   await todoStore.updateStatus(props.boardId, props.status.status.id, statusName.value)
-  isEditing.value = false;
+  isEditing.value = false
 }
 
 async function handleDelete() {
-  await todoStore.deleteStatus(props.boardId, props.status.status.id);
+  await todoStore.deleteStatus(props.boardId, props.status.status.id)
 }
 
 function handleEditTask(task) {
@@ -163,20 +203,17 @@ function handleEditTask(task) {
   formModel.description = task.description
   formModel.plannedCompletionAt = task.plannedCompletionAt.slice(0, 10)
 
-  showModal.value = true;
-  currentTask.value = task;
+  showModal.value = true
+  currentTask.value = task
 }
 
 async function handleEditSubmit() {
-  await todoStore.editTask(
-    props.boardId,
-    props.status.status.id,
-    currentTask.value.id,
-    {
-      ...formModel,
-      plannedCompletionAt: formModel.plannedCompletionAt ? new Date(formModel.plannedCompletionAt).toISOString() : undefined
-    }
-  )
+  await todoStore.editTask(props.boardId, props.status.status.id, currentTask.value.id, {
+    ...formModel,
+    plannedCompletionAt: formModel.plannedCompletionAt
+      ? new Date(formModel.plannedCompletionAt).toISOString()
+      : undefined
+  })
 
   Object.assign(formModel, {
     name: '',
@@ -187,12 +224,18 @@ async function handleEditSubmit() {
   showModal.value = false
 }
 
-
+async function onDrop(event) {
+  await todoStore.moveTask(
+    props.boardId,
+    props.status.status.id,
+    event.dataTransfer.getData('taskId')
+  )
+}
 </script>
 
 <style scoped>
 .kanban__column {
-  background: #D5CCFF;
+  background: #d5ccff;
   padding: 20px;
   border-radius: 16px;
   width: 100%;
@@ -218,7 +261,7 @@ async function handleEditSubmit() {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color: #1C0E5E;
+  color: #1c0e5e;
 }
 
 .kanban__edit-title {
@@ -266,10 +309,10 @@ async function handleEditSubmit() {
   margin-left: 8px;
   cursor: pointer;
   transition: opacity 0.2s ease-in-out;
-  opacity: 0.8
+  opacity: 0.8;
 }
 
 .board-action-btn:hover {
-  opacity: 1.0
+  opacity: 1;
 }
 </style>

@@ -4,9 +4,20 @@
       <div class="header__brand">
         <router-link to="/" class="header__logo-link">
           <div class="header__logo">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4" y="4" width="24" height="24" rx="4" fill="url(#gradient)"/>
-              <path d="M12 12H20M12 16H20M12 20H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="4" y="4" width="24" height="24" rx="4" fill="url(#gradient)" />
+              <path
+                d="M12 12H20M12 16H20M12 20H16"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
               <defs>
                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#6C63FF" />
@@ -24,7 +35,7 @@
 
 <style scoped>
 .header {
-  background-color: #1C0E5E;
+  background-color: #1c0e5e;
   color: white;
   position: fixed;
   inset-inline: 0;
@@ -71,7 +82,7 @@
 .header__title {
   font-size: 24px;
   margin: 0;
-  background: linear-gradient(to right, #D5CCFF, #ffffff);
+  background: linear-gradient(to right, #d5ccff, #ffffff);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;

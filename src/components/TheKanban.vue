@@ -6,14 +6,23 @@
         <div class="kanban__stats">
           <span class="kanban__stat">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M2 4H14M2 8H14M2 12H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path
+                d="M2 4H14M2 8H14M2 12H10"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
             </svg>
             Статусов: {{ columns.length }}
           </span>
           <span class="kanban__stat">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 1V3M8 13V15M3 8H1M15 8H13M13.0711 2.92893L11.6569 4.34314M4.34315 11.6569L2.92893 13.0711M13.0711 13.0711L11.6569 11.6569M4.34315 4.34315L2.92893 2.92893" 
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path
+                d="M8 1V3M8 13V15M3 8H1M15 8H13M13.0711 2.92893L11.6569 4.34314M4.34315 11.6569L2.92893 13.0711M13.0711 13.0711L11.6569 11.6569M4.34315 4.34315L2.92893 2.92893"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
             </svg>
             Задач: {{ totalTasks }}
           </span>
@@ -26,19 +35,28 @@
         <div class="kanban__spinner"></div>
         <p>Загрузка задач...</p>
       </div>
-      
+
       <template v-else>
         <TheColumn
-            v-for="column in columns"
-            :key="column.status.id"
-            :status="column"
-            :board-id="boardId"
+          v-for="column in columns"
+          :key="column.status.id"
+          :status="column"
+          :board-id="boardId"
         />
-        
+
         <div class="kanban__add-column">
-          <button v-if="showAddColumnForm === false" class="kanban__add-column-btn" @click="showAddColumnForm = true">
+          <button
+            v-if="showAddColumnForm === false"
+            class="kanban__add-column-btn"
+            @click="showAddColumnForm = true"
+          >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 4V20M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path
+                d="M12 4V20M4 12H20"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
             </svg>
             <span>Добавить статус</span>
           </button>
@@ -49,7 +67,7 @@
           </form>
         </div>
       </template>
-      </div>
+    </div>
   </div>
 </template>
 
@@ -94,7 +112,7 @@ const boardName = computed(() => board.value?.name || 'Доска')
 const columns = computed(() => todoStore.tasks || [])
 const totalTasks = computed(() => {
   let taskCount = 0
-  columns.value.forEach((col) => taskCount += col.tasks.length)
+  columns.value.forEach((col) => (taskCount += col.tasks.length))
   return taskCount
 })
 
@@ -107,14 +125,14 @@ const handleDeleteTask = async (taskId) => {
   }
 }
 
-const addColumn = async() => {
+const addColumn = async () => {
   await todoStore.addStatusToBoard(props.boardId, newColumnName.value)
 
   newColumnName.value = ''
   showAddColumnForm.value = false
 }
 
-onMounted(async() => {
+onMounted(async () => {
   await loadBoardData()
 })
 
@@ -160,7 +178,7 @@ const loadBoardData = async () => {
 
 .kanban__title {
   margin: 0;
-  color: #1C0E5E;
+  color: #1c0e5e;
   font-size: 24px;
   font-weight: 600;
 }
@@ -180,7 +198,7 @@ const loadBoardData = async () => {
 }
 
 .kanban__stat svg {
-  color: #6C63FF;
+  color: #6c63ff;
 }
 
 .kanban__controls {
@@ -211,7 +229,7 @@ const loadBoardData = async () => {
 
 .kanban__filter-select:focus {
   outline: none;
-  border-color: #6C63FF;
+  border-color: #6c63ff;
 }
 
 .kanban__search-input {
@@ -234,7 +252,7 @@ const loadBoardData = async () => {
 
 .kanban__search-input:focus {
   outline: none;
-  border-color: #6C63FF;
+  border-color: #6c63ff;
 }
 
 .kanban__filter-btn {
@@ -252,13 +270,13 @@ const loadBoardData = async () => {
 }
 
 .kanban__filter-btn:hover {
-  border-color: #6C63FF;
-  color: #6C63FF;
+  border-color: #6c63ff;
+  color: #6c63ff;
 }
 
 .kanban__filter-btn.active {
-  border-color: #6C63FF;
-  background: #6C63FF;
+  border-color: #6c63ff;
+  background: #6c63ff;
   color: white;
 }
 
@@ -300,13 +318,13 @@ const loadBoardData = async () => {
 }
 
 .kanban__action-btn:hover {
-  border-color: #6C63FF;
-  color: #6C63FF;
+  border-color: #6c63ff;
+  color: #6c63ff;
 }
 
 .kanban__action-btn--primary {
-  background: #6C63FF;
-  border-color: #6C63FF;
+  background: #6c63ff;
+  border-color: #6c63ff;
   color: white;
 }
 
@@ -349,14 +367,18 @@ const loadBoardData = async () => {
   width: 50px;
   height: 50px;
   border: 4px solid #e9ecef;
-  border-top: 4px solid #6C63FF;
+  border-top: 4px solid #6c63ff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .kanban__empty {
@@ -385,7 +407,7 @@ const loadBoardData = async () => {
 
 .kanban__empty-btn {
   padding: 12px 24px;
-  background: #6C63FF;
+  background: #6c63ff;
   color: white;
   border: none;
   border-radius: 8px;
@@ -425,9 +447,9 @@ const loadBoardData = async () => {
 }
 
 .kanban__add-column-btn:hover {
-  border-color: #6C63FF;
+  border-color: #6c63ff;
   background: rgba(108, 99, 255, 0.05);
-  color: #6C63FF;
+  color: #6c63ff;
 }
 
 .kanban__add-column-btn svg {
@@ -455,7 +477,7 @@ const loadBoardData = async () => {
   width: 100%;
   font-size: 1rem;
   border-radius: 12px;
-  background: #6C63FF;
+  background: #6c63ff;
   border: none;
   padding: 1rem;
 }
@@ -553,16 +575,16 @@ const loadBoardData = async () => {
     align-items: stretch;
     gap: 15px;
   }
-  
+
   .kanban__controls {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .kanban__filters {
     justify-content: space-between;
   }
-  
+
   .kanban__search-input {
     flex: 1;
   }
@@ -573,52 +595,52 @@ const loadBoardData = async () => {
     height: auto;
     min-height: calc(100vh - 120px);
   }
-  
+
   .kanban__header {
     padding: 15px;
   }
-  
+
   .kanban__columns-container {
     padding: 15px;
   }
-  
+
   .kanban__stats {
     flex-wrap: wrap;
     gap: 10px;
   }
-  
+
   .kanban__filters {
     flex-wrap: wrap;
   }
-  
+
   .kanban__search-input {
     width: 100%;
   }
-  
+
   .kanban__actions {
     flex-wrap: wrap;
   }
-  
+
   .kanban__action-btn span {
     display: none;
   }
-  
+
   .kanban__action-btn {
     padding: 10px;
   }
-  
+
   .kanban__columns {
     flex-direction: column;
   }
-  
+
   .kanban__columns-wrapper {
     flex-direction: column;
   }
-  
+
   .kanban__add-column {
     min-width: auto;
   }
-  
+
   .kanban__add-column-btn {
     min-height: 100px;
   }

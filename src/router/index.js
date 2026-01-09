@@ -47,27 +47,24 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
-  
-  
+
   if (!authStore.token) {
     authStore.restore()
   }
-  
-  
+
   if (to.meta.requiresGuest && authStore.isAuthenticated) {
     next({ name: 'Home' })
     return
   }
-  
- 
+
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-    next({ 
-      name: 'Login', 
-      query: { redirect: to.fullPath } 
+    next({
+      name: 'Login',
+      query: { redirect: to.fullPath }
     })
     return
   }
-  
+
   next()
 })
 

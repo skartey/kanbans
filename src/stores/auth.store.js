@@ -25,7 +25,7 @@ export const useAuthStore = defineStore('auth', () => {
       localStorage.setItem('userId', String(userId))
       localStorage.setItem('token', token)
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 

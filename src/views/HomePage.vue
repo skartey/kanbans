@@ -6,9 +6,7 @@
           <h2>Добро пожаловать в Todo List!</h2>
           <p>Организуйте свои задачи эффективно с помощью удобных досок</p>
           <div class="auth-actions">
-            <router-link to="/login" class="auth-btn login-btn">
-              Войти в систему
-            </router-link>
+            <router-link to="/login" class="auth-btn login-btn"> Войти в систему </router-link>
             <router-link to="/register" class="auth-btn register-btn">
               Создать аккаунт
             </router-link>
@@ -29,7 +27,7 @@
           </div>
         </div>
       </div>
-      
+
       <div v-else class="dashboard">
         <div class="dashboard-header">
           <div class="dashboard-title">
@@ -41,13 +39,13 @@
             Создать доску
           </button>
         </div>
-      
+
         <div v-if="todoStore.isLoading" class="loading-state">
           <div class="spinner"></div>
           <p>Загружаем ваши доски...</p>
         </div>
-    
-        <div v-else-if="(!todoStore.boards || todoStore.boards.length === 0)" class="empty-state">
+
+        <div v-else-if="!todoStore.boards || todoStore.boards.length === 0" class="empty-state">
           <div class="empty-illustration">📋</div>
           <h3>У вас пока нет досок</h3>
           <p>Создайте свою первую доску для организации задач</p>
@@ -55,11 +53,11 @@
             Создать первую доску
           </button>
         </div>
-        
+
         <div v-else class="boards-grid">
-          <div 
-            v-for="board in (todoStore.boards || [])" 
-            :key="board?.id" 
+          <div
+            v-for="board in todoStore.boards || []"
+            :key="board?.id"
             class="board-card"
             @click="selectBoard(board)"
             :style="board?.id ? { background: getBoardColor(board.id) } : {}"
@@ -67,8 +65,8 @@
             <div class="board-card-header">
               <h3 class="board-title">{{ board?.name || board?.title || 'Без названия' }}</h3>
               <div class="board-actions">
-                <button 
-                  @click.stop="deleteBoard(board.id)" 
+                <button
+                  @click.stop="deleteBoard(board.id)"
                   class="delete-board-btn"
                   title="Удалить доску"
                 >
@@ -76,69 +74,64 @@
                 </button>
               </div>
             </div>
-            
+
             <p v-if="board?.description" class="board-description">{{ board.description }}</p>
-            
+
             <div class="board-footer">
               <span class="board-date">
                 {{ formatDate(board?.createdAt || board?.created_at) }}
               </span>
-              <span class="board-action" @click.stop="selectBoard(board)">
-                Открыть →
-              </span>
+              <span class="board-action" @click.stop="selectBoard(board)"> Открыть → </span>
             </div>
           </div>
         </div>
       </div>
     </main>
-    
+
     <div v-if="showCreateBoard" class="modal-overlay" @click.self="showCreateBoard = false">
       <div class="modal">
         <div class="modal-header">
           <h3>Создать новую доску</h3>
           <button @click="cancelCreateBoard" class="modal-close">×</button>
         </div>
-        
+
         <div class="modal-body">
           <div class="form-group">
             <label for="boardName">Название доски <span class="required">*</span></label>
-            <input 
+            <input
               id="boardName"
-              v-model="newBoardData.name" 
+              v-model="newBoardData.name"
               placeholder="Например: Рабочие задачи"
               @keyup.enter="createBoard"
               @blur="nameTouched = true"
-              :class="{ 'error': !newBoardData.name.trim() && nameTouched }"
+              :class="{ error: !newBoardData.name.trim() && nameTouched }"
               autofocus
             />
             <div v-if="!newBoardData.name.trim() && nameTouched" class="field-error">
               Введите название доски
             </div>
           </div>
-          
+
           <div class="form-group">
             <label for="boardDescription">Описание</label>
-            <textarea 
+            <textarea
               id="boardDescription"
-              v-model="newBoardData.description" 
+              v-model="newBoardData.description"
               placeholder="Краткое описание вашей доски..."
               rows="3"
-                            maxlength="200"
-
+              maxlength="200"
             ></textarea>
-            <div class="char-count">
-              {{ newBoardData.description.length }}/200
-            </div>
+            <div class="char-count">{{ newBoardData.description.length }}/200</div>
           </div>
         </div>
-        
+
         <div class="modal-footer">
           <button @click="cancelCreateBoard" class="cancel-btn">Отмена</button>
-          <button 
-            @click="createBoard" 
-            :disabled="!newBoardData.name.trim() || isCreating" 
+          <button
+            @click="createBoard"
+            :disabled="!newBoardData.name.trim() || isCreating"
             class="confirm-btn"
-            :class="{ 'loading': isCreating }"
+            :class="{ loading: isCreating }"
           >
             <span v-if="isCreating" class="spinner"></span>
             <span>{{ isCreating ? 'Создание...' : 'Создать доску' }}</span>
@@ -155,17 +148,22 @@
 
         <div class="modal-body">
           <div class="warning-icon">⚠️</div>
-          <p>Вы уверены, что хотите удалить доску <strong>"{{ boardToDelete?.name || boardToDelete?.title || '' }}"</strong>?</p>
-          <p class="warning-text">Это действие нельзя отменить. Все задачи и статусы будут удалены.</p>
+          <p>
+            Вы уверены, что хотите удалить доску
+            <strong>"{{ boardToDelete?.name || boardToDelete?.title || '' }}"</strong>?
+          </p>
+          <p class="warning-text">
+            Это действие нельзя отменить. Все задачи и статусы будут удалены.
+          </p>
         </div>
-        
+
         <div class="modal-footer">
           <button @click="cancelDelete" class="cancel-btn">Отмена</button>
-          <button 
-            @click="confirmDeleteBoard" 
+          <button
+            @click="confirmDeleteBoard"
             :disabled="isDeleting"
             class="delete-confirm-btn"
-            :class="{ 'loading': isDeleting }"
+            :class="{ loading: isDeleting }"
           >
             <span v-if="isDeleting" class="spinner"></span>
             <span>{{ isDeleting ? 'Удаление...' : 'Удалить' }}</span>
@@ -173,7 +171,7 @@
         </div>
       </div>
     </div>
-    
+
     <transition name="fade">
       <div v-if="notification.show" class="notification-toast" :class="notification.type">
         <div class="toast-content">
@@ -189,43 +187,43 @@
 </template>
 
 <script setup>
-import { ref, onMounted, reactive } from 'vue';
-import { useRouter } from 'vue-router';
-import { useAuthStore } from '@/stores/auth.store';
-import { useTodoStore } from '@/stores/todo.store';
-import TheHeader from '@/components/TheHeader.vue';
+import { ref, onMounted, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/stores/auth.store'
+import { useTodoStore } from '@/stores/todo.store'
+import TheHeader from '@/components/TheHeader.vue'
 
-const router = useRouter();
-const authStore = useAuthStore();
-const todoStore = useTodoStore();
+const router = useRouter()
+const authStore = useAuthStore()
+const todoStore = useTodoStore()
 
-const showCreateBoard = ref(false);
-const showDeleteConfirm = ref(false);
-const boardToDelete = ref(null);
-const isCreating = ref(false);
-const isDeleting = ref(false);
-const nameTouched = ref(false);
+const showCreateBoard = ref(false)
+const showDeleteConfirm = ref(false)
+const boardToDelete = ref(null)
+const isCreating = ref(false)
+const isDeleting = ref(false)
+const nameTouched = ref(false)
 
 const newBoardData = reactive({
   name: '',
   description: ''
-});
+})
 
 const notification = reactive({
   show: false,
   message: '',
   type: 'success'
-});
+})
 
 const getInitials = (name) => {
-  if (!name) return '?';
+  if (!name) return '?'
   return name
     .split(' ')
-    .map(part => part[0])
+    .map((part) => part[0])
     .join('')
     .toUpperCase()
-    .substring(0, 2);
-};
+    .substring(0, 2)
+}
 
 const getBoardColor = (id) => {
   const colors = [
@@ -236,166 +234,164 @@ const getBoardColor = (id) => {
     'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
     'linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)'
-  ];
-  return colors[id % colors.length];
-};
+  ]
+  return colors[id % colors.length]
+}
 
 const loadUserBoards = async () => {
   if (!authStore.userId) {
-    console.warn('Нет ID пользователя для загрузки досок');
-    return;
+    console.warn('Нет ID пользователя для загрузки досок')
+    return
   }
-  
+
   try {
-    await todoStore.getUserBoards(authStore.userId);
+    await todoStore.getUserBoards(authStore.userId)
   } catch (error) {
-    console.error('Ошибка загрузки досок в HomePage:', error);
-    showNotification('Ошибка загрузки досок', 'error');
+    console.error('Ошибка загрузки досок в HomePage:', error)
+    showNotification('Ошибка загрузки досок', 'error')
   }
-};
+}
 
 const createBoard = async () => {
   if (!newBoardData.name.trim()) {
-    nameTouched.value = true;
-    showNotification('Введите название доски', 'error');
-    return;
+    nameTouched.value = true
+    showNotification('Введите название доски', 'error')
+    return
   }
 
   if (!authStore.userId) {
-    showNotification('Пользователь не найден', 'error');
-    return;
+    showNotification('Пользователь не найден', 'error')
+    return
   }
 
   try {
-    isCreating.value = true;
-    
+    isCreating.value = true
+
     const boardData = {
       name: newBoardData.name.trim(),
       description: newBoardData.description.trim() || undefined
-    };
-    
-    await todoStore.createBoard(boardData, authStore.userId);
-    
-    showNotification('Доска успешно создана!', 'success');
-    resetCreateForm();
-    showCreateBoard.value = false;
-    
-    await loadUserBoards();
-    
+    }
+
+    await todoStore.createBoard(boardData, authStore.userId)
+
+    showNotification('Доска успешно создана!', 'success')
+    resetCreateForm()
+    showCreateBoard.value = false
+
+    await loadUserBoards()
   } catch (error) {
-    console.error('Ошибка создания доски:', error);
-    showNotification('Ошибка создания доски', 'error');
+    console.error('Ошибка создания доски:', error)
+    showNotification('Ошибка создания доски', 'error')
   } finally {
-    isCreating.value = false;
+    isCreating.value = false
   }
-};
+}
 
 const deleteBoard = (boardId) => {
-  const board = todoStore.getBoardById(boardId);
-  if (!board) return;
-  
-  boardToDelete.value = board;
-  showDeleteConfirm.value = true;
-};
+  const board = todoStore.getBoardById(boardId)
+  if (!board) return
+
+  boardToDelete.value = board
+  showDeleteConfirm.value = true
+}
 
 const confirmDeleteBoard = async () => {
-  if (!boardToDelete.value?.id) return;
-  
+  if (!boardToDelete.value?.id) return
+
   try {
-    isDeleting.value = true;
-    
-    await todoStore.deleteBoard(boardToDelete.value.id, authStore.userId);
-    
-    showNotification('Доска удалена', 'success');
-    cancelDelete();
-    
-    await loadUserBoards();
-    
+    isDeleting.value = true
+
+    await todoStore.deleteBoard(boardToDelete.value.id, authStore.userId)
+
+    showNotification('Доска удалена', 'success')
+    cancelDelete()
+
+    await loadUserBoards()
   } catch (error) {
-    console.error('Ошибка удаления доски:', error);
-    showNotification('Ошибка удаления доски', 'error');
+    console.error('Ошибка удаления доски:', error)
+    showNotification('Ошибка удаления доски', 'error')
   } finally {
-    isDeleting.value = false;
+    isDeleting.value = false
   }
-};
+}
 
 const cancelDelete = () => {
-  boardToDelete.value = null;
-  showDeleteConfirm.value = false;
-};
+  boardToDelete.value = null
+  showDeleteConfirm.value = false
+}
 
 const selectBoard = (board) => {
-  if (!board?.id) return;
-  router.push(`/board/${board.id}`);
-};
+  if (!board?.id) return
+  router.push(`/board/${board.id}`)
+}
 
 const formatDate = (dateString) => {
-  if (!dateString) return 'Не указано';
-  
+  if (!dateString) return 'Не указано'
+
   try {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffTime = Math.abs(now - date);
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    
+    const date = new Date(dateString)
+    const now = new Date()
+    const diffTime = Math.abs(now - date)
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24))
+
     if (diffDays === 0) {
-      return 'Сегодня';
+      return 'Сегодня'
     } else if (diffDays === 1) {
-      return 'Вчера';
+      return 'Вчера'
     } else if (diffDays < 7) {
-      return `${diffDays} дня назад`;
+      return `${diffDays} дня назад`
     } else {
       return date.toLocaleDateString('ru-RU', {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric'
-      });
+      })
     }
   } catch (e) {
-    return 'Неизвестно';
+    return 'Неизвестно'
   }
-};
+}
 
 const resetCreateForm = () => {
-  newBoardData.name = '';
-  newBoardData.description = '';
-  nameTouched.value = false;
-};
+  newBoardData.name = ''
+  newBoardData.description = ''
+  nameTouched.value = false
+}
 
 const cancelCreateBoard = () => {
-  showCreateBoard.value = false;
-  resetCreateForm();
-};
+  showCreateBoard.value = false
+  resetCreateForm()
+}
 
 const showNotification = (message, type = 'success') => {
-  notification.message = message;
-  notification.type = type;
-  notification.show = true;
-  
+  notification.message = message
+  notification.type = type
+  notification.show = true
+
   setTimeout(() => {
-    notification.show = false;
-  }, 3000);
-};
+    notification.show = false
+  }, 3000)
+}
 
 const handleLogout = async () => {
   try {
-    authStore.logout();
-    showNotification('Вы успешно вышли', 'success');
-    
-    router.push('/login');
+    authStore.logout()
+    showNotification('Вы успешно вышли', 'success')
+
+    router.push('/login')
   } catch (error) {
-    console.error('Ошибка при выходе:', error);
-    showNotification('Ошибка при выходе', 'error');
+    console.error('Ошибка при выходе:', error)
+    showNotification('Ошибка при выходе', 'error')
   }
-};
+}
 
 onMounted(() => {
   if (authStore.isAuthenticated) {
-    loadUserBoards();
+    loadUserBoards()
   } else {
     router.push('/login')
   }
-});
+})
 </script>
 
 <style scoped>
@@ -424,7 +420,7 @@ onMounted(() => {
 }
 
 .welcome-card h2 {
-  color: #1C0E5E;
+  color: #1c0e5e;
   margin-bottom: 1rem;
   font-size: 2rem;
 }
@@ -455,21 +451,21 @@ onMounted(() => {
 }
 
 .login-btn {
-  background: #1C0E5E;
+  background: #1c0e5e;
   color: white;
-  border-color: #1C0E5E;
+  border-color: #1c0e5e;
 }
 
 .login-btn:hover {
-  background: #2B1887;
+  background: #2b1887;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(28, 14, 94, 0.2);
 }
 
 .register-btn {
   background: white;
-  color: #1C0E5E;
-  border-color: #1C0E5E;
+  color: #1c0e5e;
+  border-color: #1c0e5e;
 }
 
 .register-btn:hover {
@@ -507,7 +503,7 @@ onMounted(() => {
 }
 
 .dashboard-title h2 {
-  color: #1C0E5E;
+  color: #1c0e5e;
   margin: 0 0 0.5rem 0;
   font-size: 1.75rem;
 }
@@ -519,7 +515,7 @@ onMounted(() => {
 
 .create-btn {
   padding: 0.875rem 1.5rem;
-  background: #1C0E5E;
+  background: #1c0e5e;
   color: white;
   border: none;
   border-radius: 10px;
@@ -532,7 +528,7 @@ onMounted(() => {
 }
 
 .create-btn:hover:not(:disabled) {
-  background: #2B1887;
+  background: #2b1887;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(28, 14, 94, 0.2);
 }
@@ -565,13 +561,15 @@ onMounted(() => {
   height: 40px;
   border: 3px solid rgba(28, 14, 94, 0.1);
   border-radius: 50%;
-  border-top-color: #1C0E5E;
+  border-top-color: #1c0e5e;
   animation: spin 1s linear infinite;
   margin-bottom: 1rem;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .empty-state {
@@ -589,7 +587,7 @@ onMounted(() => {
 }
 
 .empty-state h3 {
-  color: #1C0E5E;
+  color: #1c0e5e;
   margin-bottom: 0.5rem;
 }
 
@@ -631,7 +629,7 @@ onMounted(() => {
 
 .board-title {
   margin: 0;
-  color: #1C0E5E;
+  color: #1c0e5e;
   font-size: 1.25rem;
   font-weight: 600;
   flex: 1;
@@ -703,7 +701,7 @@ onMounted(() => {
 }
 
 .board-action {
-  color: #1C0E5E;
+  color: #1c0e5e;
   font-weight: 500;
   font-size: 0.875rem;
   cursor: pointer;
@@ -711,9 +709,8 @@ onMounted(() => {
 }
 
 .board-action:hover {
-  color: #2B1887;
+  color: #2b1887;
 }
-
 
 .notification-toast {
   position: fixed;
@@ -818,40 +815,40 @@ onMounted(() => {
     gap: 1rem;
     text-align: center;
   }
-  
+
   .user-info {
     width: 100%;
     justify-content: center;
   }
-  
+
   .dashboard-header {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .boards-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .auth-actions {
     flex-direction: column;
   }
-  
+
   .features {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .modal {
     width: 95%;
     margin: 1rem;
   }
-  
+
   .modal-footer {
     flex-direction: column;
   }
-  
+
   .cancel-btn,
   .confirm-btn,
   .delete-confirm-btn {

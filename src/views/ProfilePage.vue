@@ -12,7 +12,7 @@
             <p class="profile-email">{{ userEmail }}</p>
           </div>
         </div>
-        
+
         <div class="profile-stats">
           <div class="stat-card">
             <h3>Досок</h3>
@@ -61,7 +61,7 @@ const lastActivity = computed(() => 'Сегодня')
 }
 
 h1 {
-  color: #1C0E5E;
+  color: #1c0e5e;
   margin-bottom: 30px;
 }
 
@@ -81,7 +81,7 @@ h1 {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6C63FF, #1C0E5E);
+  background: linear-gradient(135deg, #6c63ff, #1c0e5e);
   color: white;
   font-size: 36px;
   font-weight: bold;
@@ -130,7 +130,7 @@ h1 {
   margin: 0;
   font-size: 32px;
   font-weight: bold;
-  color: #1C0E5E;
+  color: #1c0e5e;
 }
 
 @media (max-width: 768px) {
@@ -138,7 +138,7 @@ h1 {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .profile-stats {
     grid-template-columns: 1fr;
   }

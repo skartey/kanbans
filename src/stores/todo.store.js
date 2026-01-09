@@ -8,17 +8,14 @@ export const useTodoStore = defineStore('todo', () => {
   const isLoading = ref(false)
 
   function getBoardById(boardId) {
-    return boards.value.find(board => board.id === boardId)
+    return boards.value.find((board) => board.id === boardId)
   }
-
 
   async function getUserBoards(userId) {
     try {
       isLoading.value = true
 
-      const response = await api.get(
-        `/user/${userId}/boards`
-      )
+      const response = await api.get(`/user/${userId}/boards`)
 
       boards.value = response.data
       return boards.value
@@ -34,15 +31,12 @@ export const useTodoStore = defineStore('todo', () => {
     try {
       isLoading.value = true
 
-      await api.post(
-        `/user/${userId}/boards`,
-        {
-          formData: {
-            name: payload.name,
-            description: payload.description
-          }
+      await api.post(`/user/${userId}/boards`, {
+        formData: {
+          name: payload.name,
+          description: payload.description
         }
-      )
+      })
 
       await getUserBoards(userId)
     } catch (err) {
@@ -56,9 +50,7 @@ export const useTodoStore = defineStore('todo', () => {
     try {
       isLoading.value = true
 
-      const response = await api.get(
-        `/boards/${boardId}/tasks`
-      )
+      const response = await api.get(`/boards/${boardId}/tasks`)
 
       tasks.value = response.data
       return tasks.value
@@ -105,7 +97,7 @@ export const useTodoStore = defineStore('todo', () => {
     }
   }
 
-  async function deleteStatus(boardId, statusId,) {
+  async function deleteStatus(boardId, statusId) {
     try {
       await api.delete(`/boards/${boardId}/statuses/${statusId}`)
       await getTasksForBoard(boardId)
@@ -121,7 +113,7 @@ export const useTodoStore = defineStore('todo', () => {
           statusId,
           name: payload.name,
           description: payload.description,
-          plannedCompletionAt: payload.plannedCompletionAt,
+          plannedCompletionAt: payload.plannedCompletionAt
         }
       })
       await getTasksForBoard(boardId)
@@ -137,7 +129,7 @@ export const useTodoStore = defineStore('todo', () => {
           statusId,
           name: payload.name,
           description: payload.description,
-          plannedCompletionAt: payload.plannedCompletionAt,
+          plannedCompletionAt: payload.plannedCompletionAt
         }
       })
       await getTasksForBoard(boardId)
@@ -149,6 +141,19 @@ export const useTodoStore = defineStore('todo', () => {
   async function deleteTask(boardId, taskId) {
     try {
       await api.delete(`/boards/${boardId}/tasks/${taskId}`)
+      await getTasksForBoard(boardId)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async function moveTask(boardId, statusId, taskId) {
+    try {
+      await api.patch(`/boards/${boardId}/tasks/${taskId}`, {
+        formData: {
+          statusId
+        }
+      })
       await getTasksForBoard(boardId)
     } catch (error) {
       console.error(error)
@@ -176,6 +181,6 @@ export const useTodoStore = defineStore('todo', () => {
     editTask,
     deleteTask,
     clearAll,
-
+    moveTask
   }
 })

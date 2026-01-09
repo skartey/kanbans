@@ -1,23 +1,23 @@
 <template>
-    <NotificationContainer />
+  <NotificationContainer />
 
-    <div v-if="appLoading" class="app-loading">
-      <div class="loading-content">
-        <div class="loading-spinner"></div>
-        <p>Загрузка приложения...</p>
-      </div>
+  <div v-if="appLoading" class="app-loading">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <p>Загрузка приложения...</p>
     </div>
+  </div>
 
-    <template v-else>
-      <the-header />
-      <div class="content">
-        <router-view v-slot="{ Component }">
-          <transition name="fade" mode="out-in">
-            <component :is="Component" />
-          </transition>
-        </router-view>
-      </div>
-    </template>
+  <template v-else>
+    <the-header />
+    <div class="content">
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </div>
+  </template>
 </template>
 
 <script setup>
@@ -50,7 +50,7 @@ onMounted(initApp)
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1C0E5E 0%, #2B1887 100%);
+  background: linear-gradient(135deg, #1c0e5e 0%, #2b1887 100%);
 }
 
 .loading-content {
@@ -69,8 +69,12 @@ onMounted(initApp)
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .fade-enter-active,
@@ -82,5 +86,4 @@ onMounted(initApp)
 .fade-leave-to {
   opacity: 0;
 }
-
 </style>
