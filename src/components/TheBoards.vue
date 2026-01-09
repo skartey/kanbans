@@ -6,26 +6,41 @@
         <div class="boards-stats">
           <span class="stat">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M2 4H14M2 8H14M2 12H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path
+                d="M2 4H14M2 8H14M2 12H8"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
             </svg>
             Всего: {{ boards.length }}
           </span>
           <span class="stat">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M13 8H3M13 12H8M8 2V4M6 2H10M4 8H2V14H14V8H12" 
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M13 8H3M13 12H8M8 2V4M6 2H10M4 8H2V14H14V8H12"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
             Активных: {{ activeBoardsCount }}
           </span>
           <span class="stat">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path
+                d="M8 2V14M2 8H14"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
             </svg>
             Задач: {{ totalTasks }}
           </span>
         </div>
       </div>
-      
+
       <div class="boards-controls">
         <div class="boards-search">
           <input
@@ -36,7 +51,9 @@
             @input="handleSearch"
           />
           <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </div>
         <div class="boards-sort">
@@ -54,10 +71,42 @@
             title="Сетка"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
-              <rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
-              <rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
-              <rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <rect
+                x="1"
+                y="1"
+                width="6"
+                height="6"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <rect
+                x="9"
+                y="1"
+                width="6"
+                height="6"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <rect
+                x="1"
+                y="9"
+                width="6"
+                height="6"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <rect
+                x="9"
+                y="9"
+                width="6"
+                height="6"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
             </svg>
           </button>
           <button
@@ -66,9 +115,33 @@
             title="Список"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <rect x="1" y="1" width="14" height="3" rx="1" stroke="currentColor" stroke-width="1.5"/>
-              <rect x="1" y="6" width="14" height="3" rx="1" stroke="currentColor" stroke-width="1.5"/>
-              <rect x="1" y="11" width="14" height="3" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <rect
+                x="1"
+                y="1"
+                width="14"
+                height="3"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <rect
+                x="1"
+                y="6"
+                width="14"
+                height="3"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <rect
+                x="1"
+                y="11"
+                width="14"
+                height="3"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
             </svg>
           </button>
         </div>
@@ -79,8 +152,13 @@
             title="Фильтры"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M15 1H1L6.5 8.345V13.25L9.5 14.75V8.345L15 1Z" 
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M15 1H1L6.5 8.345V13.25L9.5 14.75V8.345L15 1Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
             <span v-if="activeFiltersCount" class="filter-badge">
               {{ activeFiltersCount }}
@@ -89,7 +167,12 @@
         </div>
         <button @click="handleCreateBoard" class="create-board-btn">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path
+              d="M10 4V16M4 10H16"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
           </svg>
           <span>Новая доска</span>
         </button>
@@ -126,39 +209,53 @@
             </select>
           </div>
         </div>
-        <button @click="clearFilters" class="clear-filters-btn">
-          Сбросить фильтры
-        </button>
+        <button @click="clearFilters" class="clear-filters-btn">Сбросить фильтры</button>
       </div>
     </div>
     <div v-if="isLoading" class="boards-loading">
       <div class="loading-spinner"></div>
       <p>Загрузка досок...</p>
     </div>
-    
+
     <div v-else-if="filteredBoards.length === 0" class="boards-empty">
       <div class="empty-illustration">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="10" width="60" height="60" rx="12" fill="#F3F4F6"/>
-          <rect x="15" y="15" width="50" height="50" rx="8" fill="white" stroke="#E5E7EB" stroke-width="2"/>
-          <rect x="25" y="25" width="30" height="8" rx="4" fill="#D5CCFF"/>
-          <rect x="25" y="40" width="20" height="8" rx="4" fill="#E5E7EB"/>
-          <rect x="25" y="55" width="15" height="8" rx="4" fill="#E5E7EB"/>
-          <path d="M65 25H75M65 40H70M65 55H68" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round"/>
+        <svg
+          width="80"
+          height="80"
+          viewBox="0 0 80 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect x="10" y="10" width="60" height="60" rx="12" fill="#F3F4F6" />
+          <rect
+            x="15"
+            y="15"
+            width="50"
+            height="50"
+            rx="8"
+            fill="white"
+            stroke="#E5E7EB"
+            stroke-width="2"
+          />
+          <rect x="25" y="25" width="30" height="8" rx="4" fill="#D5CCFF" />
+          <rect x="25" y="40" width="20" height="8" rx="4" fill="#E5E7EB" />
+          <rect x="25" y="55" width="15" height="8" rx="4" fill="#E5E7EB" />
+          <path
+            d="M65 25H75M65 40H70M65 55H68"
+            stroke="#9CA3AF"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
         </svg>
       </div>
       <h3>Нет досок</h3>
       <p v-if="searchQuery || activeFiltersCount">
         Попробуйте изменить параметры поиска или фильтры
       </p>
-      <p v-else>
-        Создайте свою первую доску для управления задачами
-      </p>
-      <button @click="handleCreateBoard" class="empty-action-btn">
-        + Создать доску
-      </button>
+      <p v-else>Создайте свою первую доску для управления задачами</p>
+      <button @click="handleCreateBoard" class="empty-action-btn">+ Создать доску</button>
     </div>
-    
+
     <div v-else class="boards-content">
       <div v-if="viewMode === 'grid'" class="boards-grid">
         <div
@@ -172,7 +269,12 @@
           <div class="board-card-header">
             <div class="board-icon">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2 4H18M2 8H18M2 12H10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path
+                  d="M2 4H18M2 8H18M2 12H10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
               </svg>
             </div>
             <h3 class="board-title">{{ board.name || board.title || 'Без названия' }}</h3>
@@ -183,21 +285,28 @@
                 :title="board.starred ? 'Убрать из избранного' : 'Добавить в избранное'"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                  <path v-if="board.starred" d="M8 1L10.472 5.396L15 6.292L11.5 9.708L12.472 14L8 11.396L3.528 14L4.5 9.708L1 6.292L5.528 5.396L8 1Z" 
-                        fill="currentColor" stroke="currentColor" stroke-width="1.5"/>
-                  <path v-else d="M8 1L10.472 5.396L15 6.292L11.5 9.708L12.472 14L8 11.396L3.528 14L4.5 9.708L1 6.292L5.528 5.396L8 1Z" 
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path
+                    v-if="board.starred"
+                    d="M8 1L10.472 5.396L15 6.292L11.5 9.708L12.472 14L8 11.396L3.528 14L4.5 9.708L1 6.292L5.528 5.396L8 1Z"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    v-else
+                    d="M8 1L10.472 5.396L15 6.292L11.5 9.708L12.472 14L8 11.396L3.528 14L4.5 9.708L1 6.292L5.528 5.396L8 1Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
                 </svg>
               </button>
-              <button
-                @click.stop="openBoardMenu(board)"
-                class="board-action-btn"
-                title="Действия"
-              >
+              <button @click.stop="openBoardMenu(board)" class="board-action-btn" title="Действия">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                  <circle cx="8" cy="4" r="1" fill="currentColor"/>
-                  <circle cx="8" cy="8" r="1" fill="currentColor"/>
-                  <circle cx="8" cy="12" r="1" fill="currentColor"/>
+                  <circle cx="8" cy="4" r="1" fill="currentColor" />
+                  <circle cx="8" cy="8" r="1" fill="currentColor" />
+                  <circle cx="8" cy="12" r="1" fill="currentColor" />
                 </svg>
               </button>
             </div>
@@ -208,13 +317,26 @@
           <div class="board-stats">
             <div class="stat-item">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <rect x="1" y="1" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                <rect
+                  x="1"
+                  y="1"
+                  width="10"
+                  height="10"
+                  rx="1"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
               </svg>
               <span>{{ board.taskCount || 0 }} задач</span>
             </div>
             <div class="stat-item">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M2 4H10M2 8H7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path
+                  d="M2 4H10M2 8H7"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
               </svg>
               <span>{{ board.statuses?.length || 0 }} статусов</span>
             </div>
@@ -222,24 +344,29 @@
           <div class="board-meta">
             <span class="meta-item">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 3V9M3 6H9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path
+                  d="M6 3V9M3 6H9"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
               </svg>
               Создано: {{ formatDate(board.createdAt) }}
             </span>
             <span v-if="board.updatedAt !== board.createdAt" class="meta-item">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6C11 8.76142 8.76142 11 6 11" 
-                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path
+                  d="M1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6C11 8.76142 8.76142 11 6 11"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
               </svg>
               Обновлено: {{ formatDate(board.updatedAt) }}
             </span>
           </div>
           <div v-if="board.tags && board.tags.length > 0" class="board-tags">
-            <span
-              v-for="tag in board.tags.slice(0, 2)"
-              :key="tag"
-              class="board-tag"
-            >
+            <span v-for="tag in board.tags.slice(0, 2)" :key="tag" class="board-tag">
               {{ tag }}
             </span>
             <span v-if="board.tags.length > 2" class="board-tag-more">
@@ -273,7 +400,12 @@
         <div class="board-card create-board-card" @click="handleCreateBoard">
           <div class="create-board-content">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="currentColor">
-              <path d="M24 8V40M8 24H40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <path
+                d="M24 8V40M8 24H40"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
             </svg>
             <h3>Создать новую доску</h3>
             <p>Начните организовывать свои задачи</p>
@@ -286,26 +418,50 @@
             <tr>
               <th @click="sortTable('name')" class="sortable">
                 Название
-                <svg v-if="sortBy === 'name'" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                  <path d="M6 9L3 6H9L6 9Z" fill="currentColor"/>
+                <svg
+                  v-if="sortBy === 'name'"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="currentColor"
+                >
+                  <path d="M6 9L3 6H9L6 9Z" fill="currentColor" />
                 </svg>
               </th>
               <th @click="sortTable('taskCount')" class="sortable">
                 Задачи
-                <svg v-if="sortBy === 'taskCount'" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                  <path d="M6 9L3 6H9L6 9Z" fill="currentColor"/>
+                <svg
+                  v-if="sortBy === 'taskCount'"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="currentColor"
+                >
+                  <path d="M6 9L3 6H9L6 9Z" fill="currentColor" />
                 </svg>
               </th>
               <th @click="sortTable('statuses')" class="sortable">
                 Статусы
-                <svg v-if="sortBy === 'statuses'" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                  <path d="M6 9L3 6H9L6 9Z" fill="currentColor"/>
+                <svg
+                  v-if="sortBy === 'statuses'"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="currentColor"
+                >
+                  <path d="M6 9L3 6H9L6 9Z" fill="currentColor" />
                 </svg>
               </th>
               <th @click="sortTable('updatedAt')" class="sortable">
                 Обновлено
-                <svg v-if="sortBy === 'updatedAt'" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                  <path d="M6 9L3 6H9L6 9Z" fill="currentColor"/>
+                <svg
+                  v-if="sortBy === 'updatedAt'"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="currentColor"
+                >
+                  <path d="M6 9L3 6H9L6 9Z" fill="currentColor" />
                 </svg>
               </th>
               <th>Участники</th>
@@ -324,7 +480,12 @@
                 <div class="board-name-wrapper">
                   <div class="board-icon">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                      <path d="M2 4H14M2 8H14M2 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      <path
+                        d="M2 4H14M2 8H14M2 12H8"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
                     </svg>
                   </div>
                   <div>
@@ -359,19 +520,31 @@
                     :title="board.starred ? 'Убрать из избранного' : 'Добавить в избранное'"
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-                      <path v-if="board.starred" d="M7 1L9.472 5.396L14 6.292L10.5 9.708L11.472 14L7 11.396L2.528 14L3.5 9.708L0 6.292L4.528 5.396L7 1Z" 
-                            fill="currentColor" stroke="currentColor" stroke-width="1.5"/>
-                      <path v-else d="M7 1L9.472 5.396L14 6.292L10.5 9.708L11.472 14L7 11.396L2.528 14L3.5 9.708L0 6.292L4.528 5.396L7 1Z" 
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path
+                        v-if="board.starred"
+                        d="M7 1L9.472 5.396L14 6.292L10.5 9.708L11.472 14L7 11.396L2.528 14L3.5 9.708L0 6.292L4.528 5.396L7 1Z"
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      />
+                      <path
+                        v-else
+                        d="M7 1L9.472 5.396L14 6.292L10.5 9.708L11.472 14L7 11.396L2.528 14L3.5 9.708L0 6.292L4.528 5.396L7 1Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
                     </svg>
                   </button>
-                  <button
-                    @click.stop="openBoard(board)"
-                    class="table-action-btn"
-                    title="Открыть"
-                  >
+                  <button @click.stop="openBoard(board)" class="table-action-btn" title="Открыть">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-                      <path d="M1 7H13M7 1V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                      <path
+                        d="M1 7H13M7 1V13"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
                     </svg>
                   </button>
                   <button
@@ -380,8 +553,14 @@
                     title="Редактировать"
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-                      <path d="M11.5 1.5C11.7761 1.22386 12.2239 1.22386 12.5 1.5L13.5 2.5C13.7761 2.77614 13.7761 3.22386 13.5 3.5L12.5 4.5L9.5 1.5L10.5 0.5C10.7761 0.223858 11.2239 0.223858 11.5 0.5L11.5 1.5Z"/>
-                      <path d="M8.5 4.5L11.5 7.5M1 13L0.5 13.5C0.223858 13.5 0 13.2761 0 13V10.5C0 10.2239 0.223858 10 0.5 10L3.5 10C3.77614 10 4 10.2239 4 10.5V13C4 13.2761 3.77614 13.5 3.5 13.5L1 13ZM2 12L12 2" stroke="currentColor" stroke-width="1.5"/>
+                      <path
+                        d="M11.5 1.5C11.7761 1.22386 12.2239 1.22386 12.5 1.5L13.5 2.5C13.7761 2.77614 13.7761 3.22386 13.5 3.5L12.5 4.5L9.5 1.5L10.5 0.5C10.7761 0.223858 11.2239 0.223858 11.5 0.5L11.5 1.5Z"
+                      />
+                      <path
+                        d="M8.5 4.5L11.5 7.5M1 13L0.5 13.5C0.223858 13.5 0 13.2761 0 13V10.5C0 10.2239 0.223858 10 0.5 10L3.5 10C3.77614 10 4 10.2239 4 10.5V13C4 13.2761 3.77614 13.5 3.5 13.5L1 13ZM2 12L12 2"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      />
                     </svg>
                   </button>
                 </div>
@@ -391,16 +570,18 @@
         </table>
       </div>
       <div v-if="totalPages > 1" class="boards-pagination">
-        <button
-          @click="prevPage"
-          :disabled="currentPage === 1"
-          class="pagination-btn"
-        >
+        <button @click="prevPage" :disabled="currentPage === 1" class="pagination-btn">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M10 12L6 8L10 4"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </button>
-        
+
         <div class="pagination-pages">
           <button
             v-for="page in visiblePages"
@@ -412,14 +593,16 @@
           </button>
           <span v-if="showEllipsis" class="pagination-ellipsis">...</span>
         </div>
-        
-        <button
-          @click="nextPage"
-          :disabled="currentPage === totalPages"
-          class="pagination-btn"
-        >
+
+        <button @click="nextPage" :disabled="currentPage === totalPages" class="pagination-btn">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M6 12L10 8L6 4"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </button>
       </div>
@@ -432,39 +615,66 @@
     >
       <button @click="openBoard(contextMenu.board)" class="context-menu-item">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M1 7H15M7 1V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path
+            d="M1 7H15M7 1V13"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
         </svg>
         <span>Открыть</span>
       </button>
       <button @click="editBoard(contextMenu.board)" class="context-menu-item">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M11.5 1.5C11.7761 1.22386 12.2239 1.22386 12.5 1.5L13.5 2.5C13.7761 2.77614 13.7761 3.22386 13.5 3.5L12.5 4.5L9.5 1.5L10.5 0.5C10.7761 0.223858 11.2239 0.223858 11.5 0.5L11.5 1.5Z"/>
-          <path d="M8.5 4.5L11.5 7.5M1 13L0.5 13.5C0.223858 13.5 0 13.2761 0 13V10.5C0 10.2239 0.223858 10 0.5 10L3.5 10C3.77614 10 4 10.2239 4 10.5V13C4 13.2761 3.77614 13.5 3.5 13.5L1 13ZM2 12L12 2" stroke="currentColor" stroke-width="1.5"/>
+          <path
+            d="M11.5 1.5C11.7761 1.22386 12.2239 1.22386 12.5 1.5L13.5 2.5C13.7761 2.77614 13.7761 3.22386 13.5 3.5L12.5 4.5L9.5 1.5L10.5 0.5C10.7761 0.223858 11.2239 0.223858 11.5 0.5L11.5 1.5Z"
+          />
+          <path
+            d="M8.5 4.5L11.5 7.5M1 13L0.5 13.5C0.223858 13.5 0 13.2761 0 13V10.5C0 10.2239 0.223858 10 0.5 10L3.5 10C3.77614 10 4 10.2239 4 10.5V13C4 13.2761 3.77614 13.5 3.5 13.5L1 13ZM2 12L12 2"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
         </svg>
         <span>Редактировать</span>
       </button>
       <button @click="toggleStar(contextMenu.board)" class="context-menu-item">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-          <path v-if="contextMenu.board.starred" d="M8 1L10.472 5.396L15 6.292L11.5 9.708L12.472 14L8 11.396L3.528 14L4.5 9.708L1 6.292L5.528 5.396L8 1Z" 
-                fill="currentColor" stroke="currentColor" stroke-width="1.5"/>
-          <path v-else d="M8 1L10.472 5.396L15 6.292L11.5 9.708L12.472 14L8 11.396L3.528 14L4.5 9.708L1 6.292L5.528 5.396L8 1Z" 
-                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            v-if="contextMenu.board.starred"
+            d="M8 1L10.472 5.396L15 6.292L11.5 9.708L12.472 14L8 11.396L3.528 14L4.5 9.708L1 6.292L5.528 5.396L8 1Z"
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <path
+            v-else
+            d="M8 1L10.472 5.396L15 6.292L11.5 9.708L12.472 14L8 11.396L3.528 14L4.5 9.708L1 6.292L5.528 5.396L8 1Z"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
-        <span>{{ contextMenu.board.starred ? 'Убрать из избранного' : 'Добавить в избранное' }}</span>
+        <span>{{
+          contextMenu.board.starred ? 'Убрать из избранного' : 'Добавить в избранное'
+        }}</span>
       </button>
       <div class="context-menu-divider"></div>
       <button @click="deleteBoard(contextMenu.board)" class="context-menu-item delete">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M2 4H14M5 4V2H11V4M6 7V11M10 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path
+            d="M2 4H14M5 4V2H11V4M6 7V11M10 7V11"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
         </svg>
         <span>Удалить</span>
       </button>
     </div>
     <div v-if="notification.show" class="notification" :class="notification.type">
       {{ notification.message }}
-      <button @click="notification.show = false" class="notification-close">
-        ×
-      </button>
+      <button @click="notification.show = false" class="notification-close">×</button>
     </div>
   </div>
 </template>
@@ -474,7 +684,6 @@ import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
 
 const props = defineProps({
   boards: {
@@ -491,17 +700,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits([
-  'select',
-  'create',
-  'edit',
-  'delete',
-  'star',
-  'search',
-  'filter',
-  'sort'
-])
-
+const emit = defineEmits(['select', 'create', 'edit', 'delete', 'star', 'search', 'filter', 'sort'])
 
 const searchQuery = ref('')
 const viewMode = ref('grid')
@@ -531,7 +730,7 @@ const notification = reactive({
 })
 
 const activeBoardsCount = computed(() => {
-  return props.boards.filter(board => !board.archived).length
+  return props.boards.filter((board) => !board.archived).length
 })
 
 const totalTasks = computed(() => {
@@ -548,33 +747,33 @@ const activeFiltersCount = computed(() => {
 
 const filteredBoards = computed(() => {
   let result = [...props.boards]
-  
+
   if (searchQuery.value) {
     const search = searchQuery.value.toLowerCase()
-    result = result.filter(board => 
-      (board.name || board.title || '').toLowerCase().includes(search) ||
-      (board.description || '').toLowerCase().includes(search) ||
-      (board.tags || []).some(tag => tag.toLowerCase().includes(search))
+    result = result.filter(
+      (board) =>
+        (board.name || board.title || '').toLowerCase().includes(search) ||
+        (board.description || '').toLowerCase().includes(search) ||
+        (board.tags || []).some((tag) => tag.toLowerCase().includes(search))
     )
   }
-  
 
   if (filters.type) {
-    result = result.filter(board => board.type === filters.type)
+    result = result.filter((board) => board.type === filters.type)
   }
-  
+
   if (filters.activity) {
     if (filters.activity === 'active') {
-      result = result.filter(board => !board.archived)
+      result = result.filter((board) => !board.archived)
     } else if (filters.activity === 'archived') {
-      result = result.filter(board => board.archived)
+      result = result.filter((board) => board.archived)
     }
   }
-  
+
   if (filters.dateRange) {
     const now = new Date()
     let cutoffDate = new Date()
-    
+
     switch (filters.dateRange) {
       case 'week':
         cutoffDate.setDate(now.getDate() - 7)
@@ -586,16 +785,16 @@ const filteredBoards = computed(() => {
         cutoffDate.setFullYear(now.getFullYear() - 1)
         break
     }
-    
-    result = result.filter(board => {
+
+    result = result.filter((board) => {
       const boardDate = new Date(board.createdAt)
       return boardDate >= cutoffDate
     })
   }
-  
+
   result.sort((a, b) => {
     let aValue, bValue
-    
+
     switch (sortBy.value) {
       case 'name':
         aValue = (a.name || a.title || '').toLowerCase()
@@ -619,14 +818,14 @@ const filteredBoards = computed(() => {
         bValue = new Date(b.updatedAt || b.createdAt).getTime()
         break
     }
-    
+
     if (sortOrder.value === 'asc') {
       return aValue > bValue ? 1 : -1
     } else {
       return aValue < bValue ? 1 : -1
     }
   })
-  
+
   return result
 })
 
@@ -637,7 +836,7 @@ const totalPages = computed(() => {
 const visiblePages = computed(() => {
   const pages = []
   const maxVisible = 5
-  
+
   if (totalPages.value <= maxVisible) {
     for (let i = 1; i <= totalPages.value; i++) {
       pages.push(i)
@@ -645,23 +844,25 @@ const visiblePages = computed(() => {
   } else {
     let start = Math.max(1, currentPage.value - 2)
     let end = Math.min(totalPages.value, start + maxVisible - 1)
-    
+
     if (end - start + 1 < maxVisible) {
       start = Math.max(1, end - maxVisible + 1)
     }
-    
+
     for (let i = start; i <= end; i++) {
       pages.push(i)
     }
   }
-  
+
   return pages
 })
 
 const showEllipsis = computed(() => {
-  return totalPages.value > 5 && 
-         (visiblePages.value[visiblePages.value.length - 1] < totalPages.value ||
-          visiblePages.value[0] > 1)
+  return (
+    totalPages.value > 5 &&
+    (visiblePages.value[visiblePages.value.length - 1] < totalPages.value ||
+      visiblePages.value[0] > 1)
+  )
 })
 
 const paginatedBoards = computed(() => {
@@ -696,10 +897,7 @@ const deleteBoard = (board) => {
 
 const toggleStar = (board) => {
   emit('star', { boardId: board.id, starred: !board.starred })
-  showNotification(
-    board.starred ? 'Убрано из избранного' : 'Добавлено в избранное',
-    'success'
-  )
+  showNotification(board.starred ? 'Убрано из избранного' : 'Добавлено в избранное', 'success')
   closeContextMenu()
 }
 
@@ -757,18 +955,18 @@ const goToPage = (page) => {
 
 const formatDate = (dateString, short = false) => {
   if (!dateString) return 'Не указано'
-  
+
   try {
     const date = new Date(dateString)
     const now = new Date()
     const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24))
-    
+
     if (short) {
       if (diffDays === 0) return 'Сегодня'
       if (diffDays === 1) return 'Вчера'
       if (diffDays < 7) return `${diffDays} д. назад`
     }
-    
+
     return date.toLocaleDateString('ru-RU', {
       day: '2-digit',
       month: '2-digit',
@@ -787,22 +985,35 @@ const truncateText = (text, maxLength) => {
 
 const getInitials = (name) => {
   if (!name) return '?'
-  return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2)
 }
 
 const stringToColor = (str) => {
   if (!str) return '#6C63FF'
-  
+
   let hash = 0
   for (let i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash)
   }
-  
+
   const colors = [
-    '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7',
-    '#DDA0DD', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9'
+    '#FF6B6B',
+    '#4ECDC4',
+    '#45B7D1',
+    '#96CEB4',
+    '#FFEAA7',
+    '#DDA0DD',
+    '#98D8C8',
+    '#F7DC6F',
+    '#BB8FCE',
+    '#85C1E9'
   ]
-  
+
   return colors[Math.abs(hash) % colors.length]
 }
 
@@ -816,19 +1027,19 @@ const isBoardActive = (board) => {
 
 const getActivityText = (lastActivity) => {
   if (!lastActivity) return 'Нет активности'
-  
+
   const activityDate = new Date(lastActivity)
   const now = new Date()
   const diffHours = Math.floor((now - activityDate) / (1000 * 60 * 60))
-  
+
   if (diffHours === 0) return 'Только что'
   if (diffHours === 1) return '1 час назад'
   if (diffHours < 24) return `${diffHours} ч. назад`
-  
+
   const diffDays = Math.floor(diffHours / 24)
   if (diffDays === 1) return 'Вчера'
   if (diffDays < 7) return `${diffDays} д. назад`
-  
+
   return formatDate(lastActivity, true)
 }
 
@@ -852,7 +1063,7 @@ const showNotification = (message, type = 'success') => {
   notification.message = message
   notification.type = type
   notification.show = true
-  
+
   setTimeout(() => {
     notification.show = false
   }, 3000)
@@ -897,7 +1108,7 @@ onUnmounted(() => {
 
 .boards-title {
   margin: 0;
-  color: #1C0E5E;
+  color: #1c0e5e;
   font-size: 28px;
   font-weight: 600;
 }
@@ -917,7 +1128,7 @@ onUnmounted(() => {
 }
 
 .stat svg {
-  color: #6C63FF;
+  color: #6c63ff;
 }
 
 .boards-controls {
@@ -945,7 +1156,7 @@ onUnmounted(() => {
 
 .search-input:focus {
   outline: none;
-  border-color: #6C63FF;
+  border-color: #6c63ff;
   background: white;
   box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
 }
@@ -975,7 +1186,7 @@ onUnmounted(() => {
 
 .sort-select:focus {
   outline: none;
-  border-color: #6C63FF;
+  border-color: #6c63ff;
 }
 
 .boards-view {
@@ -1006,7 +1217,7 @@ onUnmounted(() => {
 
 .view-btn.active {
   background: white;
-  color: #6C63FF;
+  color: #6c63ff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -1028,13 +1239,13 @@ onUnmounted(() => {
 }
 
 .filter-btn:hover {
-  border-color: #6C63FF;
-  color: #6C63FF;
+  border-color: #6c63ff;
+  color: #6c63ff;
 }
 
 .filter-btn.active {
-  border-color: #6C63FF;
-  background: #6C63FF;
+  border-color: #6c63ff;
+  background: #6c63ff;
   color: white;
 }
 
@@ -1051,7 +1262,7 @@ onUnmounted(() => {
 
 .create-board-btn {
   padding: 10px 20px;
-  background: #6C63FF;
+  background: #6c63ff;
   color: white;
   border: none;
   border-radius: 8px;
@@ -1116,7 +1327,7 @@ onUnmounted(() => {
 
 .filter-group select:focus {
   outline: none;
-  border-color: #6C63FF;
+  border-color: #6c63ff;
 }
 
 .clear-filters-btn {
@@ -1148,15 +1359,19 @@ onUnmounted(() => {
   width: 40px;
   height: 40px;
   border: 3px solid #e9ecef;
-  border-top: 3px solid #6C63FF;
+  border-top: 3px solid #6c63ff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 16px;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .boards-empty {
@@ -1189,7 +1404,7 @@ onUnmounted(() => {
 
 .empty-action-btn {
   padding: 12px 24px;
-  background: #6C63FF;
+  background: #6c63ff;
   color: white;
   border: none;
   border-radius: 8px;
@@ -1227,11 +1442,11 @@ onUnmounted(() => {
 .board-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  border-color: #6C63FF;
+  border-color: #6c63ff;
 }
 
 .board-card.active {
-  border-color: #6C63FF;
+  border-color: #6c63ff;
   background: rgba(108, 99, 255, 0.05);
 }
 
@@ -1242,7 +1457,7 @@ onUnmounted(() => {
   top: 0;
   bottom: 0;
   width: 4px;
-  background: #6C63FF;
+  background: #6c63ff;
 }
 
 .board-card-header {
@@ -1254,7 +1469,7 @@ onUnmounted(() => {
 .board-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #6C63FF, #1C0E5E);
+  background: linear-gradient(135deg, #6c63ff, #1c0e5e);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -1266,7 +1481,7 @@ onUnmounted(() => {
 .board-title {
   margin: 0;
   flex: 1;
-  color: #1C0E5E;
+  color: #1c0e5e;
   font-size: 18px;
   font-weight: 600;
   line-height: 1.3;
@@ -1292,7 +1507,7 @@ onUnmounted(() => {
 
 .board-action-btn:hover {
   background: #f8f9fa;
-  color: #6C63FF;
+  color: #6c63ff;
 }
 
 .board-description {
@@ -1321,7 +1536,7 @@ onUnmounted(() => {
 }
 
 .stat-item svg {
-  color: #6C63FF;
+  color: #6c63ff;
 }
 
 .board-meta {
@@ -1439,8 +1654,13 @@ onUnmounted(() => {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .activity-text {
@@ -1459,7 +1679,7 @@ onUnmounted(() => {
 
 .create-board-card:hover {
   background: #e9ecef;
-  border-color: #6C63FF;
+  border-color: #6c63ff;
   transform: translateY(-2px);
 }
 
@@ -1558,7 +1778,7 @@ onUnmounted(() => {
 
 .board-name {
   font-weight: 500;
-  color: #1C0E5E;
+  color: #1c0e5e;
   margin-bottom: 4px;
 }
 
@@ -1568,7 +1788,9 @@ onUnmounted(() => {
   line-height: 1.4;
 }
 
-.task-count, .status-count, .updated-at {
+.task-count,
+.status-count,
+.updated-at {
   color: #666;
   font-weight: 500;
 }
@@ -1629,7 +1851,7 @@ onUnmounted(() => {
 
 .table-action-btn:hover {
   background: #f8f9fa;
-  color: #6C63FF;
+  color: #6c63ff;
 }
 .boards-pagination {
   display: flex;
@@ -1656,8 +1878,8 @@ onUnmounted(() => {
 }
 
 .pagination-btn:hover:not(:disabled) {
-  border-color: #6C63FF;
-  color: #6C63FF;
+  border-color: #6c63ff;
+  color: #6c63ff;
 }
 
 .pagination-btn:disabled {
@@ -1688,9 +1910,9 @@ onUnmounted(() => {
 }
 
 .page-btn.active {
-  background: #6C63FF;
+  background: #6c63ff;
   color: white;
-  border-color: #6C63FF;
+  border-color: #6c63ff;
 }
 
 .pagination-ellipsis {
@@ -1804,45 +2026,45 @@ onUnmounted(() => {
   .boards-container {
     padding: 16px;
   }
-  
+
   .boards-header {
     padding: 16px;
   }
-  
+
   .boards-title-section {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
-  
+
   .boards-stats {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .boards-controls {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .boards-search,
   .boards-sort {
     min-width: auto;
   }
-  
+
   .filters-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .boards-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .boards-table {
     display: block;
     overflow-x: auto;
   }
-  
+
   .context-menu {
     min-width: 180px;
   }
@@ -1852,16 +2074,16 @@ onUnmounted(() => {
   .board-card {
     padding: 16px;
   }
-  
+
   .board-stats {
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .boards-pagination {
     flex-wrap: wrap;
   }
-  
+
   .pagination-pages {
     order: 1;
     width: 100%;

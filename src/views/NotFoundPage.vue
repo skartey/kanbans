@@ -24,7 +24,7 @@ setTimeout(() => {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1C0E5E 0%, #2B1887 100%);
+  background: linear-gradient(135deg, #1c0e5e 0%, #2b1887 100%);
 }
 
 .not-found-container {
@@ -37,7 +37,7 @@ setTimeout(() => {
 
 h1 {
   font-size: 100px;
-  color: #1C0E5E;
+  color: #1c0e5e;
   margin: 0;
 }
 
@@ -50,7 +50,7 @@ p {
 .home-link {
   display: inline-block;
   padding: 12px 24px;
-  background: #1C0E5E;
+  background: #1c0e5e;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -59,6 +59,6 @@ p {
 }
 
 .home-link:hover {
-  background: #2B1887;
+  background: #2b1887;
 }
 </style>

@@ -1,20 +1,20 @@
 <template>
   <div class="board-page">
-    <TheHeader 
-      :board="board" 
+    <TheHeader
+      :board="board"
       @create-task="handleCreateTask"
       @create-status="handleCreateStatus"
       @edit-board="handleEditBoard"
       @delete-board="handleDeleteBoard"
       @go-home="goHome"
     />
-    
+
     <main class="board-main">
       <div v-if="isLoading" class="loading-container">
         <div class="spinner"></div>
         <p>Загрузка доски...</p>
       </div>
-      
+
       <div v-else-if="apiError" class="error-container">
         <div class="error-message">
           <h3>Ошибка загрузки</h3>
@@ -22,13 +22,12 @@
           <button @click="goHome" class="home-btn">На главную</button>
         </div>
       </div>
-      
+
       <TheKanban v-else :boardId="boardId" :key="boardKey" />
     </main>
-    
+
     <TheFooter />
-    
-   
+
     <div v-if="notification.show" class="notification" :class="notification.type">
       {{ notification.message }}
     </div>
@@ -50,7 +49,7 @@ const todoStore = useTodoStore()
 const boardId = route.params.id
 const isLoading = ref(false)
 const apiError = ref('')
-const boardKey = ref(0) 
+const boardKey = ref(0)
 const showTaskModal = ref(false)
 const modalType = ref('task')
 
@@ -67,12 +66,15 @@ onMounted(() => {
   loadBoardData()
 })
 
-watch(() => route.params.id, (newId) => {
-  if (newId) {
-    boardId = newId
-    loadBoardData()
+watch(
+  () => route.params.id,
+  (newId) => {
+    if (newId) {
+      boardId = newId
+      loadBoardData()
+    }
   }
-})
+)
 
 const loadBoardData = async () => {
   try {
@@ -107,7 +109,7 @@ const handleDeleteBoard = async () => {
   if (!confirm(`Удалить доску "${board.value?.name}"? Это действие нельзя отменить.`)) {
     return
   }
-  
+
   try {
     await todoStore.deleteBoard(boardId)
     showNotification('Доска удалена', 'success')
@@ -130,11 +132,10 @@ const handleTaskSave = async (taskData) => {
       await todoStore.updateBoard(boardId, taskData)
       showNotification('Доска обновлена', 'success')
     }
-    
+
     closeModal()
 
     await loadBoardData()
-    
   } catch (error) {
     console.error('Ошибка сохранения:', error)
     showNotification(`Ошибка: ${error.message}`, 'error')
@@ -155,7 +156,7 @@ const showNotification = (message, type = 'success') => {
     message,
     type
   }
-  
+
   setTimeout(() => {
     notification.value.show = false
   }, 3000)
@@ -191,14 +192,18 @@ const showNotification = (message, type = 'success') => {
   width: 50px;
   height: 50px;
   border: 4px solid #e0e0e0;
-  border-top: 4px solid #1C0E5E;
+  border-top: 4px solid #1c0e5e;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .error-container {
@@ -228,7 +233,7 @@ const showNotification = (message, type = 'success') => {
 
 .home-btn {
   padding: 10px 20px;
-  background: #1C0E5E;
+  background: #1c0e5e;
   color: white;
   border: none;
   border-radius: 5px;
@@ -237,7 +242,7 @@ const showNotification = (message, type = 'success') => {
 }
 
 .home-btn:hover {
-  background: #2B1887;
+  background: #2b1887;
 }
 
 .notification {

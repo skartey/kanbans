@@ -1,5 +1,5 @@
 <template>
-  <div class="task-item" draggable="true" @dragstart="handleDragStart" @dragend="handleDragEnd">
+  <div class="task-item" draggable="true" @dragstart="handleDragStart">
     <div class="task-header">
       <h4 class="task-title">
         {{ task.name }}
@@ -8,17 +8,30 @@
       <div class="task-actions">
         <button @click="$emit('edit')" class="btn-action">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <g
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
               <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
               <path
-                d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" />
+                d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"
+              />
             </g>
           </svg>
         </button>
         <button @click="handleDelete" class="btn-action">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M10 11v6m4-6v6m5-11v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 11v6m4-6v6m5-11v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+            />
           </svg>
         </button>
       </div>
@@ -41,15 +54,11 @@ const props = defineProps({
   task: { type: Object, required: true }
 })
 
-const emit = defineEmits(['edit', 'dragstart', 'dragend'])
+const emit = defineEmits(['edit', 'dragstart'])
 
 const handleDragStart = (e) => {
-  e.dataTransfer.setData('text/plain', props.task.id)
+  e.dataTransfer.setData('taskId', props.task.id)
   emit('dragstart', props.task)
-}
-
-const handleDragEnd = () => {
-  emit('dragend', props.task)
 }
 
 const formatDate = (dateString) => {
@@ -68,7 +77,7 @@ async function handleDelete() {
   border-radius: 10px;
   padding: 12px;
   cursor: grab;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .task-header {
@@ -101,7 +110,7 @@ async function handleDelete() {
 }
 
 .btn-action:hover {
-  opacity: 0.9
+  opacity: 0.9;
 }
 
 .task-description {

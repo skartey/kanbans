@@ -3,23 +3,11 @@
     <form class="register-form" @submit.prevent="register">
       <h1>Регистрация</h1>
 
-      <input
-        v-model="name"
-        type="text"
-        placeholder="Имя"
-      />
+      <input v-model="name" type="text" placeholder="Имя" />
 
-      <input
-        v-model="email"
-        type="email"
-        placeholder="Email"
-      />
+      <input v-model="email" type="email" placeholder="Email" />
 
-      <input
-        v-model="password"
-        type="password"
-        placeholder="Пароль"
-      />
+      <input v-model="password" type="password" placeholder="Пароль" />
 
       <button type="submit" :disabled="loading">
         {{ loading ? 'Регистрация...' : 'Создать аккаунт' }}
@@ -69,10 +57,7 @@ async function register() {
 
     router.push('/')
   } catch (e) {
-    error.value =
-      e?.response?.data?.cause ||
-      e?.response?.data?.message ||
-      'Ошибка регистрации'
+    error.value = e?.response?.data?.cause || e?.response?.data?.message || 'Ошибка регистрации'
   } finally {
     loading.value = false
   }
@@ -85,7 +70,7 @@ async function register() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1C0E5E 0%, #2B1887 100%);
+  background: linear-gradient(135deg, #1c0e5e 0%, #2b1887 100%);
   padding: 20px;
 }
 
@@ -106,7 +91,7 @@ async function register() {
   margin: 0 0 10px;
   text-align: center;
   font-size: 28px;
-  color: #1C0E5E;
+  color: #1c0e5e;
 }
 
 .register-form input {
@@ -115,30 +100,35 @@ async function register() {
   font-size: 16px;
   border-radius: 8px;
   border: 2px solid #e0e0e0;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .register-form input:focus {
   outline: none;
-  border-color: #1C0E5E;
+  border-color: #1c0e5e;
   box-shadow: 0 0 0 3px rgba(28, 14, 94, 0.1);
 }
 
 .register-form button {
   width: 100%;
   padding: 15px;
-  background: #1C0E5E;
+  background: #1c0e5e;
   color: #ffffff;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.3s,
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .register-form button:hover:not(:disabled) {
-  background: #2B1887;
+  background: #2b1887;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(28, 14, 94, 0.2);
 }
@@ -157,7 +147,7 @@ async function register() {
 .register-form a {
   margin-top: 10px;
   text-align: center;
-  color: #1C0E5E;
+  color: #1c0e5e;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;

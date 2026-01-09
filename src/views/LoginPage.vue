@@ -1,4 +1,3 @@
-
 <template>
   <div class="login-page">
     <div class="login-container">
@@ -16,7 +15,7 @@
             type="email"
             required
             placeholder="Введите email"
-            :class="{ 'error': errors.email }"
+            :class="{ error: errors.email }"
             @blur="validateField('email')"
             @input="clearError('email')"
             autocomplete="email"
@@ -35,7 +34,7 @@
               :type="showPassword ? 'text' : 'password'"
               required
               placeholder="Введите пароль"
-              :class="{ 'error': errors.password }"
+              :class="{ error: errors.password }"
               @blur="validateField('password')"
               @input="clearError('password')"
               autocomplete="current-password"
@@ -57,10 +56,7 @@
 
         <div class="form-options">
           <label class="remember-me">
-            <input
-              type="checkbox"
-              v-model="rememberMe"
-            />
+            <input type="checkbox" v-model="rememberMe" />
             <span>Запомнить меня</span>
           </label>
         </div>
@@ -69,11 +65,9 @@
           type="submit"
           :disabled="isSubmitting"
           class="login-btn"
-          :class="{ 'loading': isSubmitting }"
+          :class="{ loading: isSubmitting }"
         >
-          <span v-if="isSubmitting">
-            <span class="spinner"></span> Вход...
-          </span>
+          <span v-if="isSubmitting"> <span class="spinner"></span> Вход... </span>
           <span v-else>Войти</span>
         </button>
 
@@ -81,20 +75,13 @@
           <span>или</span>
         </div>
 
-        <button
-          type="button"
-          @click="loginAsGuest"
-          class="guest-btn"
-          :disabled="isSubmitting"
-        >
+        <button type="button" @click="loginAsGuest" class="guest-btn" :disabled="isSubmitting">
           Войти как гость
         </button>
 
         <div class="register-section">
           <p>Нет аккаунта?</p>
-          <router-link to="/register" class="register-link">
-            Создать аккаунт
-          </router-link>
+          <router-link to="/register" class="register-link"> Создать аккаунт </router-link>
         </div>
       </form>
     </div>
@@ -224,7 +211,7 @@ const handleKeyPress = (event) => {
   }
 }
 
-onMounted(async() => {
+onMounted(async () => {
   window.addEventListener('keypress', handleKeyPress)
 
   const isAuthentificated = await authStore.restore()
@@ -264,7 +251,7 @@ onUnmounted(() => {
 }
 
 .login-header h1 {
-  color: #1C0E5E;
+  color: #1c0e5e;
   margin: 0 0 0.5rem 0;
   font-size: 1.75rem;
   font-weight: 700;
@@ -367,7 +354,7 @@ onUnmounted(() => {
 .login-btn {
   width: 100%;
   padding: 1rem;
-  background: #1C0E5E;
+  background: #1c0e5e;
   color: white;
   border: none;
   border-radius: 10px;
@@ -383,7 +370,7 @@ onUnmounted(() => {
 }
 
 .login-btn:hover:not(:disabled) {
-  background: #2B1887;
+  background: #2b1887;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(28, 14, 94, 0.2);
 }
@@ -408,7 +395,9 @@ onUnmounted(() => {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .divider {
@@ -447,8 +436,8 @@ onUnmounted(() => {
 
 .guest-btn:hover:not(:disabled) {
   background: #e9ecef;
-  border-color: #1C0E5E;
-  color: #1C0E5E;
+  border-color: #1c0e5e;
+  color: #1c0e5e;
 }
 
 .guest-btn:disabled {
@@ -547,15 +536,15 @@ onUnmounted(() => {
   .login-container {
     border-radius: 16px;
   }
-  
+
   .login-header {
     padding: 1.5rem 1.5rem 1rem;
   }
-  
+
   .login-form {
     padding: 1.5rem;
   }
-  
+
   .error-toast {
     left: 1rem;
     right: 1rem;
