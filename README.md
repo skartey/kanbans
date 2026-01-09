@@ -1,38 +1,51 @@
-# todo-list
+# Kanban Board Vue 3
 
-This template should help get you started developing with Vue 3 in Vite.
+Это Kanban-приложение для управления задачами, построенное на **Vue 3** с использованием **Pinia** для состояния. Оно позволяет создавать колонки (статусы), добавлять, редактировать и удалять задачи, а также перетаскивать их между колонками.
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Особенности
 
-## Recommended Browser Setup
+* Авторизация и регистрация пользователей
+* Создание, редактирование и удаление досок
+* Создание, редактирование и удаление колонок (статусов)
+* Создание, редактирование и удаление задач
+* Поддержка drag-and-drop для задач между колонками
+* Валидация форм
+* Интуитивный и минималистичный интерфейс
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+---
 
-## Customize configuration
+## 🛠 Технологии
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+* **Vue 3** — реактивный фронтенд-фреймворк
+* **Pinia** — управление состоянием приложения
+* **Axios** — клиент для выполнения HTTP-запросов
+* **Composition API** — современный подход к работе с компонентами Vue
+* **HTML5 & CSS3** — структура и стили
+* **Flexbox** — для адаптивного расположения колонок и задач
 
-## Project Setup
+---
 
-```sh
+## ⚡ Установка
+
+1. Клонируйте репозиторий:
+
+```bash
+git clone https://gitlab-dev.efko.ru/cr_ovr_fr4/todo-list.git
+cd todo-list
+```
+
+2. Установите зависимости:
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3. Запустите приложение:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Приложение будет доступно по адресу `http://localhost:5173` (Vite по умолчанию).
