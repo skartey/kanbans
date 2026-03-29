@@ -46,7 +46,7 @@ const route = useRoute()
 const router = useRouter()
 const todoStore = useTodoStore()
 
-const boardId = route.params.id
+const boardId = computed(() => route.params.id);
 const isLoading = ref(false)
 const apiError = ref('')
 const boardKey = ref(0)
@@ -54,7 +54,7 @@ const showTaskModal = ref(false)
 const modalType = ref('task')
 
 const board = computed(() => todoStore.getBoardById(boardId))
-const tasks = computed(() => todoStore.tasks)
+
 
 const notification = ref({
   show: false,
@@ -67,12 +67,9 @@ onMounted(() => {
 })
 
 watch(
-  () => route.params.id,
-  (newId) => {
-    if (newId) {
-      boardId = newId
-      loadBoardData()
-    }
+  () => boardId.value,
+  () => {
+    loadBoardData()
   }
 )
 

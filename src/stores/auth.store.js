@@ -22,7 +22,7 @@ export const useAuthStore = defineStore('auth', () => {
       userId.value = id
       api.defaults.headers.common['X-Base-Auth'] = token
 
-      localStorage.setItem('userId', String(userId))
+     localStorage.setItem('userId', String(userId.value))
       localStorage.setItem('token', token)
     } catch (error) {
       console.error(error)
