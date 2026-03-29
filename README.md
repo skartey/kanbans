@@ -49,3 +49,7 @@ npm run dev
 ```
 
 Приложение будет доступно по адресу `http://localhost:5173` (Vite по умолчанию).
+
+https://github.com/user-attachments/assets/83996ef9-3297-490e-a289-80c03bf1e517
+
+
